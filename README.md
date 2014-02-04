@@ -33,13 +33,13 @@ Usage
 
 We typically feed two files to GIZA++, containing sentences in one language, and their translations in another language. For example
 
-*Eng.txt*
+*test/Eng.txt*
 
     the government should not limit the amount spent on the aged because this problem is becoming more and more prevalent in singapore .
     an ageing population or what has been coined the " silver tsunami" is a phenomena faced by developed countries around the globe and singapore is no exception .
     ...
     
-*Chs.txt*
+*test/Chs.txt*
 
     ， 因为 这个 问题 变 得 越来越 普遍 ， 在 新加坡 ， 政府 不 应该 限制 对 老年 花费 的 金额 。
     “ 银发 海啸 ” 的 现象 所 面临 的 发达国家 在 全球 各地 和 新加坡 的 人口 老龄化 已经 创造 也 不 例外 。
@@ -47,7 +47,7 @@ We typically feed two files to GIZA++, containing sentences in one language, and
     
 GIZA++ is able to produce the alignments between sentences in the two files.
 
-*Align.txt*
+*test/Align.txt*
 
     2-14 12-2 13-3 21-10 8-16 3-13 20-9 15-4 1-12 5-19 6-20 11-1 10-17 0-11 4-15 19-7 22-21 7-18 17-8 15-6 
     21-12 17-9 7-2 9-3 20-10 13-4 9-0 12-4 11-1 0-15 5-18 2-16 1-17 26-22 24-15 23-14 22-13 16-6 6-18 16-8 15-7 14-5 27-23 25-20 
@@ -55,7 +55,7 @@ GIZA++ is able to produce the alignments between sentences in the two files.
     
 You may wonder whether such alignments can be useful for your applications. You may wonder whether the alignments are acceptable, or have trouble deciding whether the alignments' quality is acceptable. My program helps you visualize the alignments. The following command will generate the alignment of the second sentence into *output.png*.
 
-    python draw_alignment.py Eng.txt Chs.txt Align.txt 2 output.png
+    python draw_alignment.py --src_sentences=test/Eng.txt --trg_sentences=test/Chs.txt --align_file=test/Align.txt --sentence_id=2 --output_image=output.png
     
 In the above case, output.png will contain the following image
 <img src="giza_demo.png" alt="The GIZA output can be visualized into a image." style="width: 200px;"/>
