@@ -14,7 +14,8 @@ Input
 Output
 
 1. A PNG image visualizing the two sentences, and the alignments between them
-![The alignment structure between English sentence "I like machine translation ." and Chinese sentence "我 喜欢 机器翻译 。"](demo.png =50px)
+<img src="demo.png" alt="The alignment structure between English sentence I like machine translation . and Chinese sentence 我 喜欢 机器翻译 。" style="width: 50px;"/>
+![]()
 
 Installation
 ------------
@@ -29,7 +30,7 @@ Usage
 -----
 
 ###Analyzing Alignments produced by GIZA++
-[GIZA++](https://code.google.com/p/giza-pp/) is an awesome software that produces word level alignments for a list of sentences and their translations. We use it all the time in our researches, but its alignment output just contains a bunch of numbers, which is hard to interprete.
+[GIZA++](https://code.google.com/p/giza-pp/) is an awesome software that produces word level alignments for a list of sentences and their translations. We use it all the time in our researches, but its alignment output only contains a list of numbers, which is hard to interprete.
 
 We typically feed two files to GIZA++, containing sentences in one language, and their translations in another language. For example
 
