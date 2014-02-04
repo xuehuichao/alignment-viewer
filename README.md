@@ -15,7 +15,6 @@ Output
 
 1. A PNG image visualizing the two sentences, and the alignments between them
 <img src="demo.png" alt="The alignment structure between English sentence I like machine translation . and Chinese sentence 我 喜欢 机器翻译 。" style="width: 50px;"/>
-![]()
 
 Installation
 ------------
