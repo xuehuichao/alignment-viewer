@@ -4,16 +4,22 @@ Introduction
 ------------
 This script visualizes alignments between two sentences.
 
-Machine translation, paraphrasing systems often need to use alignments. Examining the word level alignment between two sentences is helpful for tuning such systems. This script visualizes the alignment structure between two sentences.
+Machine translation, paraphrasing systems often use alignments. Alignments can be automatically produced by systems such as [GIZA++](https://code.google.com/p/giza-pp/).
+
+* Wondering if alignment can be useful for your applications (e.g. natural language processing systems)?
+* Developing your own alignment algorithms, but have trouble debugging or visualizing the output?
+* You have a new alignment algorithm that you want to write about, but drawing the diagram just takes too long?
+ 
+This script visualizes the alignment structure between two sentences into a pretty picture, so that we can clearly see what's being aligned to which.
 
 Input
 
  1. two sentences (e.g. one in English -- "I like machine translation .", and one in Chinese -- "我 喜欢 机器翻译 。")
- 2. the alignment between them (e.g. the first English word is aligned with the first Chinese word)
+ 2. the alignment between them (e.g. the first English word is aligned with the first Chinese word etc.)
 
 Output
 
-1. A PNG image visualizing the two sentences, and the alignments between them
+1. A pretty PNG image visualizing the two sentences and the alignments between them
 <img src="demo.png" alt="The alignment structure between English sentence I like machine translation . and Chinese sentence 我 喜欢 机器翻译 。" style="width: 50px;"/>
 
 Installation
@@ -53,19 +59,19 @@ GIZA++ is able to produce the alignments between sentences in the two files.
     21-12 17-9 7-2 9-3 20-10 13-4 9-0 12-4 11-1 0-15 5-18 2-16 1-17 26-22 24-15 23-14 22-13 16-6 6-18 16-8 15-7 14-5 27-23 25-20 
     ...
     
-You may wonder whether such alignments can be useful for your applications. You may wonder whether the alignments are acceptable, or have trouble deciding whether the alignments' quality is acceptable. My program helps you visualize the alignments. The following command will generate the alignment of the second sentence into *output.png*.
+My program helps you visualize the alignments. The following command will generate the alignment of the second sentence into *output.png*.
 
-    python draw_alignment.py --src_sentences=test/Eng.txt --trg_sentences=test/Chs.txt --align_file=test/Align.txt --sentence_id=2 --output_image=output.png
+    python draw_alignment.py --src_sentences=test/Eng.txt --trg_sentences=test/Chs.txt --align_file=test/Align.txt --sentence_id=1 --output_image=output.png
     
 In the above case, output.png will contain the following image
 <img src="giza_demo.png" alt="The GIZA output can be visualized into a image." style="width: 200px;"/>
 
 ###Using the Package as an External Library
-You want to debug your new alignment algorithm, but have trouble analyzing its output? You have a new alignment algorithm that you want to write about, but drawing the diagram just takes too long?  You may call the *DrawDirAlignToFile* function to produce a pretty picture for your purpose.
+You want to debug your new alignment algorithm, but have trouble analyzing its output?   You may call the *DrawDirAlignToFile* function to produce a pretty picture for your purpose.
 
 *Syntax: DrawDirAlignToFile(src_sentence, trg_sentence, alignments, output_imagefile)* 
 
-The following code will generate the alignment illustrated above.
+The following code will generate the "I like machine translation" example.
 
     import draw_alignment
     draw_alignment.DrawDirAlignToFile("I like machine translation .", u"我 喜欢 机器翻译 。", [(0, 0), (1, 1), (2, 2), (3, 2), (4, 3)], "test.png")
